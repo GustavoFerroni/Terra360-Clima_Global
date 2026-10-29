@@ -51,7 +51,7 @@ O Terra360 representa minha experiência prática com desenvolvimento web, integ
 O projeto também surgiu da tentativa de aproveitar algo que eu já estava construindo para resolver um novo desafio escolar, ampliando suas funcionalidades em vez de desenvolver uma aplicação separada.
 
 <br>
-Link do vídeo do site funcionando: 
+Link do vídeo do site funcionando: https://youtu.be/qu101_XhYVk
 ---
 
 **Desenvolvido por Gustavo Ferroni**  
