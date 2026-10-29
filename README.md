@@ -52,6 +52,7 @@ O projeto também surgiu da tentativa de aproveitar algo que eu já estava const
 
 <br>
 Link do vídeo do site funcionando: https://youtu.be/qu101_XhYVk
+
 ---
 
 **Desenvolvido por Gustavo Ferroni**  
