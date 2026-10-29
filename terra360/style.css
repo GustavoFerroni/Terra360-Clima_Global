@@ -1,0 +1,285 @@
+/* Remove margens e espaçamentos padrão e facilita o cálculo dos tamanhos. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral da página: fundo escuro, texto claro e altura mínima. */
+body {
+    background: #050910;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+/* Organiza o cabeçalho em uma linha com espaço entre os elementos. */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 7%;
+    border-bottom: 1px solid #ffffff15;
+}
+
+.logo {
+    font-size: 25px;
+    letter-spacing: 4px;
+}
+
+.logo span {
+    color: #66b8ff;
+}
+
+header p {
+    color: #9ba9bb;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+/* Centraliza o conteúdo principal e limita sua largura máxima. */
+main {
+    max-width: 1400px;
+    margin: auto;
+    padding: 60px 7%;
+}
+
+/* ---------- Layout: texto à esquerda, globo à direita ---------- */
+
+.layout {
+    display: grid;
+    grid-template-columns: minmax(0, 520px) minmax(0, 1fr);
+    gap: 40px;
+    align-items: start;
+}
+
+/* Estilos da apresentação, título e descrição do projeto. */
+.subtitulo {
+    color: #66b8ff;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.05;
+}
+
+h1 span {
+    color: #66b8ff;
+}
+
+.descricao {
+    max-width: 400px;
+    color: #9ba9bb;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-top: 20px;
+}
+
+/* Espaçamento da área de pesquisa e do cartão de resultado. */
+.consulta {
+    margin-top: 40px;
+    max-width: 520px;
+}
+
+label {
+    display: block;
+    color: #dce6f2;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+/* Deixa o campo de texto e o botão lado a lado. */
+.campo-pesquisa {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    min-width: 0;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #26374b;
+    background: #0c1522;
+    color: white;
+    outline: none;
+}
+
+input:focus {
+    border-color: #66b8ff;
+}
+
+button {
+    padding: 0 20px;
+    border: none;
+    border-radius: 8px;
+    background: #66b8ff;
+    color: #07111d;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #8bcaff;
+}
+
+/* Caixa onde aparecem os dados meteorológicos ou mensagens de erro. */
+.resultado {
+    margin-top: 20px;
+    padding: 22px;
+    background: #0c1522;
+    border: 1px solid #26374b;
+    border-radius: 12px;
+    min-height: 90px;
+}
+
+.mensagem-inicial {
+    color: #9ba9bb;
+    font-size: 13px;
+}
+
+.resultado h2 {
+    margin-bottom: 10px;
+    font-size: 21px;
+}
+
+.resultado p {
+    color: #aebed0;
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.temperatura {
+    color: #66b8ff !important;
+    font-size: 45px !important;
+    margin-top: 15px !important;
+}
+
+/* ---------- Globo 3D ---------- */
+
+.globo-area {
+    position: sticky;
+    top: 20px;
+    height: min(720px, calc(100vh - 40px));
+    min-height: 420px;
+    border-radius: 16px;
+    background: radial-gradient(circle at 50% 50%, #0b1626 0%, #050910 70%);
+    border: 1px solid #ffffff10;
+    overflow: hidden;
+}
+
+#globo {
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+}
+
+#globo:active {
+    cursor: grabbing;
+}
+
+/* Posiciona os controles por cima do globo, no canto superior direito. */
+.globo-controles {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 3;
+}
+
+.globo-controles button {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1;
+    background: #0c1522cc;
+    color: #66b8ff;
+    border: 1px solid #26374b;
+    backdrop-filter: blur(6px);
+}
+
+.globo-controles button:hover {
+    background: #66b8ff;
+    color: #07111d;
+}
+
+/* Instruções de uso exibidas na parte inferior do globo. */
+.globo-dica {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+    text-align: center;
+    color: #64748b;
+    font-size: 11px;
+    letter-spacing: 1px;
+    pointer-events: none;
+}
+
+.rotulo-globo {
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: #0c1522;
+    border: 1px solid #66b8ff;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Rodapé com os créditos do projeto e da fonte dos dados. */
+footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 25px 7%;
+    border-top: 1px solid #ffffff15;
+    color: #64748b;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+/* Em telas menores, coloca o globo abaixo do conteúdo de texto. */
+@media (max-width: 900px) {
+
+    .layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .globo-area {
+        position: relative;
+        top: 0;
+        height: 420px;
+        min-height: 0;
+    }
+}
+
+/* Ajustes extras para celulares, como formulário vertical e rodapé empilhado. */
+@media (max-width: 700px) {
+
+    main {
+        padding-top: 40px;
+    }
+
+    .campo-pesquisa {
+        flex-direction: column;
+    }
+
+    .campo-pesquisa button {
+        padding: 15px;
+    }
+
+    .globo-area {
+        height: 360px;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+}
